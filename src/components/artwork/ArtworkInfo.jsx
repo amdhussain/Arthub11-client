@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 export default function ArtworkInfo({ artwork }) {
@@ -21,12 +22,12 @@ export default function ArtworkInfo({ artwork }) {
             {artwork.artist?.name || artwork.artistName || 'Unknown Artist'}
           </p>
           {artwork.artist?._id && (
-            <a
+            <Link
               href={`/artist/${artwork.artist._id}`}
               className="text-xs text-primary hover:underline"
             >
               View profile
-            </a>
+            </Link>
           )}
         </div>
       </div>
