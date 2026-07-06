@@ -58,9 +58,10 @@
     "rating": 4.9,
     "isSold": true,
     "purchasedBy": [
-      "6a475680e9e68204d87b5907"
+      "6a475680e9e68204d87b5907",
+      "6a4b7732632517f58182cb60"
     ],
-    "stock": 100
+    "stock": 99
   },
   {
     "id": 4,
@@ -809,7 +810,10 @@
     "dimensions": "36Ã—24 in",
     "availability": true,
     "rating": 4.8,
-    "stock": 100
+    "stock": 99,
+    "purchasedBy": [
+      "6a4b7732632517f58182cb60"
+    ]
   },
   {
     "id": 50,
@@ -1070,9 +1074,10 @@
     "availability": true,
     "rating": 4.5,
     "purchasedBy": [
-      "6a47dcb269e4b5dbdfabe7f1"
+      "6a47dcb269e4b5dbdfabe7f1",
+      "6a4b7732632517f58182cb60"
     ],
-    "stock": 100
+    "stock": 99
   },
   {
     "id": 66,
@@ -1492,7 +1497,10 @@
     "dimensions": "48Ã—20Ã—20 in",
     "availability": true,
     "rating": 4.9,
-    "stock": 100
+    "stock": 99,
+    "purchasedBy": [
+      "6a4b7732632517f58182cb60"
+    ]
   },
   {
     "id": 92,
