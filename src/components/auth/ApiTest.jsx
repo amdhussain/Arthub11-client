@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import api from '@/lib/axios';
+import api from '@/api/axios';
 
 export default function ApiTest() {
   const [email, setEmail] = useState('test@example.com');

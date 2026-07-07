@@ -538,7 +538,10 @@
     "dimensions": "24Ã—36 in",
     "availability": true,
     "rating": 4.9,
-    "stock": 100
+    "stock": 99,
+    "purchasedBy": [
+      "6a4bfda1c8958676c3e12975"
+    ]
   },
   {
     "id": 33,

@@ -8,7 +8,7 @@ import {
   ShoppingBag, CreditCard, Heart, Star,
   Pencil, X, Camera, Save, Loader2, Globe
 } from 'lucide-react';
-import api from '@/lib/axios';
+import api from '@/api/axios';
 
 const containerVariants = {
   hidden: {},
