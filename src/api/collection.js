@@ -1,4 +1,4 @@
-import api from './axios';
+import api from '@/lib/axios';
 
 export async function addToCollection({ artworkId, artwork }) {
   const { data } = await api.post('/collection', { artworkId, artwork });

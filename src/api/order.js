@@ -1,4 +1,4 @@
-import api from './axios';
+import api from '@/lib/axios';
 
 export async function createOrder(orderData) {
   const { data } = await api.post('/orders', orderData);

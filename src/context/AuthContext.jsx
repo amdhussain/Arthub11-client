@@ -2,7 +2,7 @@
 
 import { createContext, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import api from '@/api/axios';
+import api from '@/lib/axios';
 
 export const AuthContext = createContext(null);
 

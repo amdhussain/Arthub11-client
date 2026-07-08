@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import { useArtworks } from '@/hooks/useArtworks';
@@ -20,13 +20,13 @@ export default function MarketplacePage() {
   const [sort, setSort] = useState('');
   const [page, setPage] = useState(1);
 
-  const params = useMemo(() => ({
+  const params = {
     page,
     limit: LIMIT,
     ...(search && { search }),
     ...(category && category !== ALL && { category }),
     ...(sort && { sort }),
-  }), [page, search, category, sort]);
+  };
 
   const { data, isLoading, isError, error } = useArtworks(params);
 

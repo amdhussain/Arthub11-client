@@ -1,10 +1,18 @@
 'use client';
 
-export default function GoogleLoginButton({ label }) {
+import PropTypes from 'prop-types';
+
+export default function GoogleLoginButton({ onSuccess, label }) {
+  const handleGoogleLogin = () => {
+    const googleAuthUrl = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/google`;
+    window.open(googleAuthUrl, '_self');
+    if (onSuccess) onSuccess();
+  };
+
   return (
     <button
       type="button"
-      onClick={() => {}}
+      onClick={handleGoogleLogin}
       className="w-full py-3 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 flex items-center justify-center gap-3"
     >
       <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -29,3 +37,8 @@ export default function GoogleLoginButton({ label }) {
     </button>
   );
 }
+
+GoogleLoginButton.propTypes = {
+  onSuccess: PropTypes.func,
+  label: PropTypes.string,
+};

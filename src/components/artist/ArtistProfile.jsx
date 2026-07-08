@@ -12,8 +12,6 @@ export default function ArtistProfile({ slug }) {
 
   useEffect(() => {
     let cancelled = false;
-    setIsLoading(true);
-    setError(null);
     fetchArtistById(slug)
       .then((res) => {
         if (cancelled) return;

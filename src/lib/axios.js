@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -8,6 +8,7 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
   withCredentials: true,
+  timeout: 15000,
 });
 
 api.interceptors.request.use(
@@ -26,9 +27,14 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    const originalRequest = error.config;
+    if (!error.response) {
+      console.error('Network/Server unreachable:', error.message);
+      return Promise.reject(error);
+    }
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    const { status, config: originalRequest } = error.response;
+
+    if (status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
@@ -43,13 +49,12 @@ api.interceptors.response.use(
           originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
           return api(originalRequest);
         }
-      } catch (refreshError) {
+      } catch {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('user');
         if (typeof window !== 'undefined') {
           window.location.href = '/login';
         }
-        return Promise.reject(refreshError);
       }
     }
 

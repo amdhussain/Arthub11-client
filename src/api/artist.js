@@ -7,5 +7,5 @@ export async function fetchTopArtists() {
 
 export async function fetchArtistById(id) {
   const { data } = await api.get(`/artists/${id}`);
-  return { artist: data.artist, artworks: data.artworks || [] };
+  return data.artist || data;
 }

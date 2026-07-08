@@ -2,11 +2,14 @@
 const nextConfig = {
   reactCompiler: true,
   async rewrites() {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
     return [
       {
-        source: '/api/:path*',
-        destination: `${API_URL}/api/:path*`,
+        source: '/api/auth/:path*',
+        destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/:path*`,
+      },
+      {
+        source: '/api/artworks/:id/comments',
+        destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/artworks/:id/comments`,
       },
     ];
   },
